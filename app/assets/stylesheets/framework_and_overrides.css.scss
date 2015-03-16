@@ -35,17 +35,17 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  /*background-color: #eee;*/
   padding-bottom: 80px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  /*width: 100%;*/
+  margin-top: 61px; // accommodate the navbar
   }
 section {
   @extend .row;
   margin-top: 20px;
   }
 
-  
+
  .navbar .nav > li > a.brand {
    padding-left: 0px;
  }
