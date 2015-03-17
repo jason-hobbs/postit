@@ -1,0 +1,28 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-xs-4 well">
+    <%= f.label "Post Title", class: "bold" %><br>
+    <%= f.text_field :title, :size=>"50", class: "form-control" %>
+    <br>
+    <%= f.label "Post URL", class: "bold" %><br>
+    <%= f.text_field :url, class: "form-control" %>
+    <br>
+    <%= f.label "Feed Description", class: "bold" %><br>
+    <%= f.text_area :description, class: "form-control" %>
+    <br>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
