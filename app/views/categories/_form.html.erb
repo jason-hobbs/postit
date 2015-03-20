@@ -1,0 +1,22 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-xs-4 well">
+    <%= f.label "Category Title", class: "bold" %><br>
+    <%= f.text_field :name, :size=>"50", class: "form-control" %>
+    <br>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

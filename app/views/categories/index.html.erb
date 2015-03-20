@@ -1,0 +1,14 @@
+<%= render 'shared/content_title', title: "All Categories" %>
+
+
+<% @categories.each do |category| %>
+  <div class='row'>
+    <div class='span8 well'>
+      <h4><%= link_to category.name, category %></h4>
+      <p>
+        <span class='quiet'>created</span>
+        <small>at <%= category.created_at %></small>
+      </p>
+    </div>
+  </div>
+<% end %>
