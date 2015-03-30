@@ -11,6 +11,11 @@
     <%= f.label "Feed Description", class: "bold" %><br>
     <%= f.text_area :description, class: "form-control" %>
     <br>
+    <%= f.label "Categories", class: "bold" %><br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cat| %>
+      <% cat.label(class: "checkbox buffer") {cat.check_box(class: "checkbox") + cat.text} %>
+    <% end %>
+    <br>
     <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
