@@ -22,15 +22,26 @@
           <% Category.all.each do |category| %>
             <li><%= link_to category.name, category_path(category) %></li>
           <% end %>
-          <li class='divider'></li>
-          <li>
-            <%= link_to '<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Category'.html_safe, new_category_path %>
-          </li>
+          <% if logged_in? %>
+            <li class='divider'></li>
+            <li>
+              <%= link_to '<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Category'.html_safe, new_category_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
-      <div class='nav_item'>
-        <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small top-heavy' %>
-      </div>
+      <% if logged_in? %>
+        <div class='nav_item'>
+          <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small top-heavy' %>
+        </div>
+        <div class='nav_item'>
+          <%= link_to 'Log out', logout_path, class: 'btn btn-default btn-small top-heavy' %>
+        </div>
+      <% else %>
+        <div class='nav_item'>
+          <%= link_to 'Login', login_path, class: 'btn btn-success btn-small top-heavy' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </nav>
