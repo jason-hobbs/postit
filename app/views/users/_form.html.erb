@@ -1,0 +1,13 @@
+<%= form_for(@user) do |f| %>
+<%= render 'shared/errors', object: @user %>
+
+  <div class="col-xs-4 well">
+    <%= f.label "Username", class: "bold" %><br>
+    <%= f.text_field :username, :size=>"50", class: "form-control" %>
+    <br>
+    <%= f.label "Password", class: "bold" %><br>
+    <%= f.password_field :password, class: "form-control" %>
+    <br>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
