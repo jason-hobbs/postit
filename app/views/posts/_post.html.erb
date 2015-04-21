@@ -1,14 +1,21 @@
-<div class=' well'>
-  <p><%= render post.categories %></p>
-  <h4><%= link_to post.title, fix_url(post.url) %></h4>
-  <p><%= post.description %></p>
-  <p>
-    <span class='quiet'>posted by</span> <%= link_to post.creator.username, user_path(post.creator) %>
-    <small>at <%= display_datetime(post.created_at) %></small>
-  </p>
-  <small>
-    <span>
-      <%= link_to "#{post.comments.size} comments", post_path(post) %>
-    </span>
-  </small>
+<div class='row'>
+  <div class='well col-sm-2 text-center'>
+    <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, '' %>
+    <br>
+    <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, '' %>
+  </div>
+  <div class='well col-sm-offset-1 col-sm-9'>
+    <p><%= render post.categories %></p>
+    <h4><%= link_to post.title, fix_url(post.url) %></h4>
+    <p><%= post.description %></p>
+    <p>
+      <span class='quiet'>posted by</span> <%= link_to post.creator.username, user_path(post.creator) %>
+      <small>at <%= display_datetime(post.created_at) %></small>
+    </p>
+    <small>
+      <span>
+        <%= link_to "#{post.comments.size} comments", post_path(post) %>
+      </span>
+    </small>
+  </div>
 </div>
