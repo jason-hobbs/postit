@@ -1,11 +1,22 @@
 <% show_post ||= false %>
 
-<div class="well">
-  <em>"<%= comment.body %>"</em>
-  <% if show_post %>
-    on <%= link_to comment.post.title, post_path(comment.post) %>
-  <% end %>
-  <br>
-  <span class='quiet'>by </span><%= link_to comment.creator.username, user_path(comment.creator) %>
-  <small>at <%= display_datetime(comment.created_at) %></small>
+<div class='row'>
+  <div class='well col-sm-1 text-center'>
+    <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: true), method: 'post' %>
+    <br>
+    <%= pluralize(comment.total_votes, 'vote') %>
+    <br>
+    <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: false), method: 'post' %>
+  </div>
+
+
+  <div class="well left-side col-sm-10">
+    <em>"<%= comment.body %>"</em>
+    <% if show_post %>
+      on <%= link_to comment.post.title, post_path(comment.post) %>
+    <% end %>
+    <br>
+    <span class='quiet'>by </span><%= link_to comment.creator.username, user_path(comment.creator) %>
+    <small>at <%= display_datetime(comment.created_at) %></small>
+  </div>
 </div>

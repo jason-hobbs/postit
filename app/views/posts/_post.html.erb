@@ -1,12 +1,12 @@
 <div class='row'>
-  <div class='well col-sm-2 text-center'>
+  <div class='well col-sm-1 text-center'>
     <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, vote_post_path(post, vote: true), method: post %>
     <br>
-    <%= pluralize(post.total_votes, 'vote') %> 
+    <%= pluralize(post.total_votes, 'vote') %>
     <br>
-    <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_path(post, vote: false), method: post, method: post %>
+    <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_path(post, vote: false), method: post %>
   </div>
-  <div class='well col-sm-offset-1 col-sm-9'>
+  <div class='well left-side col-sm-10'>
     <p><%= render post.categories %></p>
     <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= post.description %></p>
