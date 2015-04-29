@@ -6,6 +6,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'responders'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

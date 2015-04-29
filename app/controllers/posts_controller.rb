@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  respond_to :html, :js
   before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:show, :index]
 
@@ -38,13 +39,17 @@ class PostsController < ApplicationController
   end
 
   def vote
-    vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    if vote.valid?
-      flash[:notice] = "Vote was counted."
-      redirect_to :back
-    else
-      flash[:notice] = "Already voted on this post."
-      redirect_to :back
+    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    respond_to do |format|
+      format.html do
+        if @vote.valid?
+          flash[:notice] = "Vote was counted."
+        else
+          flash[:notice] = "Already voted on this post."
+        end
+        redirect_to :back
+      end
+      format.js
     end
   end
 
