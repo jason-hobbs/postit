@@ -3,13 +3,13 @@
 <div class='row'>
   <div class='well col-sm-1 text-center'>
     <% if logged_in? %>
-      <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: true), method: 'post' %>
+      <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: true), method: 'post', remote: true %>
       <br>
     <% end %>
-    <%= pluralize(comment.total_votes, 'vote') %>
+    <span id='comment_<%= comment.id %>_votes'><%= pluralize(comment.total_votes, 'vote') %></span>
     <% if logged_in? %>
       <br>
-      <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: false), method: 'post' %>
+      <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_comment_path(comment.post, comment, vote: false), method: 'post', remote: true %>
     <% end %>
   </div>
 
