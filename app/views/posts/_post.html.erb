@@ -4,7 +4,7 @@
       <%= link_to '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>'.html_safe, vote_post_path(post, vote: true), method: 'post', remote: true %>
       <br>
     <% end %>
-    <span id='post_<%= post.id %>_votes'><%= pluralize(post.total_votes, 'vote') %></span>
+    <span id='post_<%= post.slug %>_votes'><%= pluralize(post.total_votes, 'vote') %></span>
     <% if logged_in? %>
       <br>
       <%= link_to '<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>'.html_safe, vote_post_path(post, vote: false), method: 'post', remote: true %>
