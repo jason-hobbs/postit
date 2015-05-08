@@ -28,3 +28,4 @@
   - heroku run console
   - heroku help
 
+https://codeship.com/projects/516157c0-d744-0132-6142-6af0bd659624/status?branch=master
