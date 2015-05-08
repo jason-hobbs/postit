@@ -10,6 +10,6 @@ class Category < ActiveRecord::Base;
   end
 
   def generate_slug
-    self.slug = self.name.gsub(" ", "-").downcase
+    self.slug ||= name.parameterize if name
   end
 end

@@ -13,6 +13,6 @@ class User < ActiveRecord::Base;
   end
 
   def generate_slug
-    self.slug = self.username.gsub(" ", "-").downcase
+    self.slug ||= username.parameterize if username
   end
 end
