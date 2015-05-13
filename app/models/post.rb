@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base;
   include Voteable
+  include Sluggable
   belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
   has_many :comments
   has_many :post_categories
@@ -8,13 +9,6 @@ class Post < ActiveRecord::Base;
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true
 
-  before_save :generate_slug
+  sluggable_column :title
 
-  def to_param
-    self.slug
-  end
-
-  def generate_slug
-    self.slug ||= title.parameterize if title
-  end
 end
