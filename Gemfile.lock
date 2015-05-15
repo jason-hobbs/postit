@@ -150,6 +150,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    voteable_hobbs (0.0.0)
 
 PLATFORMS
   ruby
@@ -171,3 +172,4 @@ DEPENDENCIES
   sqlite3
   turbolinks
   uglifier
+  voteable_hobbs
